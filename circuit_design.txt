@@ -1,0 +1,128 @@
+RFID Attendance System - Circuit Design
+=====================================
+
+Components Required:
+------------------
+1. ESP32 Development Board
+2. MFRC522 RFID Reader Module
+3. 0.96" OLED Display (SSD1306)
+4. Green LED
+5. Red LED
+6. Buzzer
+7. Push Button
+8. Resistors:
+   - 2x 220Ω (for LEDs)
+   - 1x 10kΩ (for button)
+9. Jumper Wires
+10. Breadboard (optional)
+
+Pin Connections:
+--------------
+ESP32 Pin    ->    Component
+--------------------------------
+3.3V         ->    MFRC522 VCC
+3.3V         ->    OLED VCC
+3.3V         ->    LED Anodes (via 220Ω resistors)
+GND          ->    MFRC522 GND
+GND          ->    OLED GND
+GND          ->    LED Cathodes
+GND          ->    Buzzer (-)
+GND          ->    Button (one terminal)
+
+GPIO 5       ->    MFRC522 SDA (SS)
+GPIO 22      ->    MFRC522 RST
+GPIO 21      ->    OLED SDA
+GPIO 22      ->    OLED SCL
+GPIO 27      ->    Green LED (via 220Ω)
+GPIO 26      ->    Red LED (via 220Ω)
+GPIO 25      ->    Buzzer (+)
+GPIO 13      ->    Button (other terminal, with 10kΩ pull-up)
+
+MFRC522 Pins:
+------------
+MOSI        ->    GPIO 23
+MISO        ->    GPIO 19
+SCK         ->    GPIO 18
+SDA (SS)    ->    GPIO 5
+RST         ->    GPIO 22
+VCC         ->    3.3V
+GND         ->    GND
+
+OLED Display Pins:
+----------------
+VCC         ->    3.3V
+GND         ->    GND
+SCL         ->    GPIO 22
+SDA         ->    GPIO 21
+
+Power Requirements:
+----------------
+- ESP32: 3.3V (USB powered)
+- MFRC522: 3.3V
+- OLED: 3.3V
+- LEDs: 3.3V (with current limiting resistors)
+- Buzzer: 3.3V
+
+Circuit Diagram Notes:
+--------------------
+1. All components operate at 3.3V logic level
+2. Use current limiting resistors (220Ω) for LEDs
+3. Use pull-up resistor (10kΩ) for the button
+4. Ensure proper grounding for all components
+5. Keep wires as short as possible to reduce interference
+6. Use shielded cables for SPI connections if possible
+
+Safety Considerations:
+--------------------
+1. Double-check all connections before powering on
+2. Ensure proper polarity for LEDs and buzzer
+3. Do not exceed 3.3V for any component
+4. Use appropriate current limiting resistors
+5. Keep the circuit away from water and moisture
+6. Ensure proper ventilation for the ESP32
+
+Troubleshooting Tips:
+-------------------
+1. If RFID reader not working:
+   - Check SPI connections
+   - Verify 3.3V power supply
+   - Check MISO/MOSI connections
+
+2. If OLED not displaying:
+   - Verify I2C connections
+   - Check power supply
+   - Ensure correct I2C address
+
+3. If LEDs not working:
+   - Check resistor values
+   - Verify polarity
+   - Check GPIO pin numbers
+
+4. If buzzer not working:
+   - Check polarity
+   - Verify GPIO pin number
+   - Check power supply
+
+5. If button not working:
+   - Check pull-up resistor
+   - Verify GPIO pin number
+   - Check button continuity
+
+Assembly Steps:
+-------------
+1. Connect power and ground first
+2. Connect SPI devices (MFRC522)
+3. Connect I2C device (OLED)
+4. Connect LEDs with resistors
+5. Connect buzzer
+6. Connect button with pull-up resistor
+7. Double-check all connections
+8. Power on and test
+
+Maintenance:
+----------
+1. Regularly check connections
+2. Keep the circuit clean and dust-free
+3. Monitor component temperatures
+4. Check for loose connections
+5. Verify power supply stability 
